@@ -1,6 +1,5 @@
 import { ImageResponse } from "@vercel/og";
 import { NextRequest } from "next/server";
-import thumbnailBg from "public/thumbnail_bg.png";
 
 export const config = {
   runtime: "edge",
@@ -29,7 +28,7 @@ export default async function handler(request: NextRequest) {
           padding: "0rem 3rem",
           paddingBottom: "4rem",
           gap: "10px",
-          backgroundImage: `url('${process.env.BASE_URL}/${thumbnailBg.src}')`,
+          backgroundImage: `url('https://user-images.githubusercontent.com/46296754/238274266-d1db8652-7e85-48f3-85fe-87117272f6bb.png')`,
         }}
       >
         <div

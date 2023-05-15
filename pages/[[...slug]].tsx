@@ -134,7 +134,7 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
     props: {
       pageID: pageID || "index",
       pageTitle: pageTitle,
-      chapterTitle: chapterTitle,
+      chapterTitle: chapterTitle || null,
       currentSection: currentSection,
       sections: sections,
       recordMap: recordMap,
