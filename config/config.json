@@ -1,0 +1,22 @@
+{
+  "homePageID": "3db2f7053ad249f18bca76728221196f",
+  "site": "한 입 크기로 잘라먹는 타입스크립트",
+  "description": "한 입 크기로 잘라먹는 타입스크립트",
+  "renderMode": "PRE_ISR",
+  "menus": [
+    {
+      "type": "INNER",
+      "title": "🌱 강의 소개",
+      "id": "a1cada6f7b5a4628a11b1d4e33aef004"
+    },
+    {
+      "type": "EXTERNAL",
+      "title": "🌱 강의 바로가기(인프런)",
+      "url": "#"
+    }
+  ],
+  "profile": {
+    "name": "이정환",
+    "nickname": "winterlood"
+  }
+}
