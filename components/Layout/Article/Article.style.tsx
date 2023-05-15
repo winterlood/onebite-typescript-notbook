@@ -34,7 +34,6 @@ export const StyledNotionRenderer = styled(NotionRenderer)`
     gap: 5rem;
     .notion-page-content-inner {
       flex: 1;
-      max-width: none;
     }
     .notion-aside {
       flex: none;

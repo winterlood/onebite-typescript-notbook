@@ -148,14 +148,14 @@
 FIX-0512
 @media (min-width: 1300px) and (min-height: 300px) 
 */
-@media (min-width: 800px) and (min-height: 300px) {
+@media (min-width: 1300px) and (min-height: 300px) {
   .notion-page-content-has-aside {
     display: flex;
     flex-direction: row;
     /*
       FIX-0512
     */
-    width: calc((100vw + var(--notion-max-width)) / 2);
+    /* width: calc((100vw + var(--notion-max-width)) / 2); */
   }
 
   .notion-page-content-has-aside .notion-aside {
