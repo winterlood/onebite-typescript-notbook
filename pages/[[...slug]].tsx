@@ -16,6 +16,7 @@ interface Props {
   sections: Section[];
   recordMap: ExtendedRecordMap;
   pageTitle?: string;
+  chapterTitle: string;
   currentSection?: Section;
 }
 
@@ -27,7 +28,7 @@ export const PageContext = createContext<PageContextData>(null as any);
 
 export default function Page(props: Props) {
   const router = useRouter();
-  const { pageID, sections, pageTitle, currentSection } = props;
+  const { pageID, sections, pageTitle, chapterTitle, currentSection } = props;
 
   if (sections) {
     sections.sort((a, b) => a.index - b.index);
@@ -46,7 +47,13 @@ export default function Page(props: Props) {
 
   return (
     <PageContext.Provider value={{ ...props, currentSection }}>
-      <OpenGraphHead title={pageTitle} />
+      <OpenGraphHead
+        title={pageTitle}
+        thumbnail={
+          currentSection &&
+          `${process.env.BASE_URL}/api/og?title=${chapterTitle}`
+        }
+      />
       <Layout />
     </PageContext.Provider>
   );
@@ -127,6 +134,7 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
     props: {
       pageID: pageID || "index",
       pageTitle: pageTitle,
+      chapterTitle: chapterTitle,
       currentSection: currentSection,
       sections: sections,
       recordMap: recordMap,
