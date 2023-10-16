@@ -10,7 +10,6 @@ import json from "react-syntax-highlighter/dist/esm/languages/prism/json";
 import c from "react-syntax-highlighter/dist/esm/languages/prism/c";
 
 // themes
-import oneDark from "react-syntax-highlighter/dist/esm/styles/prism/one-dark";
 import vscDarkPlus from "react-syntax-highlighter/dist/esm/styles/prism/vsc-dark-plus";
 
 import {

@@ -17,15 +17,15 @@ export default function SearchItem(props: Props) {
 
   if (!search || !title) return null;
 
+  const onClickItem = () => {
+    router.push(`/${id}`);
+  };
+
   const matchString = title
     .toLowerCase()
     .split(new RegExp(`(${search.toLowerCase()})`, "gi"));
 
   if (!Array.isArray(matchString)) return null;
-
-  const onClickItem = () => {
-    router.push(`/${id}`);
-  };
 
   return (
     <SearchItemWrapper onClick={onClickItem}>
