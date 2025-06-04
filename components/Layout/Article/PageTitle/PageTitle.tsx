@@ -5,6 +5,7 @@ import {
   StyledA,
   StyledSpan,
   StyledAlert,
+  StyledBoldSpan,
 } from "./PageTitle.style";
 import { ExtendedRecordMap } from "notion-types";
 import { getPageTitle } from "notion-utils";
@@ -23,12 +24,13 @@ export default function PageTitle(props: Props) {
       <StyledTitle>{getPageTitle(recordMap)}</StyledTitle>
       <StyledBanner>
         <StyledAlert>
-          <StyledSpan>이 페이지는 인프런 강의</StyledSpan>&nbsp;
-          <StyledLink href={`https://inf.run/wome`} target="_blank">
-            한 입 크기로 잘라먹는 타입스크립트
-          </StyledLink>
+          <StyledBoldSpan>한 입 크기로 잘라먹는 타입스크립트</StyledBoldSpan>
           &nbsp;
           <StyledSpan>의 강의 자료입니다</StyledSpan>
+          <br />
+          <StyledLink href={`https://inf.run/wome`}>
+            10% 할인 쿠폰 받기 (~2025.12)
+          </StyledLink>
         </StyledAlert>
       </StyledBanner>
     </PageTitleWrapper>
