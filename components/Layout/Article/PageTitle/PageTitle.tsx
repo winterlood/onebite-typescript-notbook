@@ -28,9 +28,9 @@ export default function PageTitle(props: Props) {
           &nbsp;
           <StyledSpan>의 강의 자료입니다</StyledSpan>
           <br />
-          <StyledLink href={`https://link.onebitefe.com/r/5mdrl3`}>
-            10% 할인 쿠폰 받기 (~2025.12)
-          </StyledLink>
+          <StyledA target="_blank" href={`https://link.onebitefe.com/r/5mdrl3`}>
+            20% 할인 쿠폰 받기 (~2025.12)
+          </StyledA>
         </StyledAlert>
       </StyledBanner>
     </PageTitleWrapper>

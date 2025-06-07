@@ -8,7 +8,7 @@ import config from "config/config.json";
 export default function PageAside() {
   return (
     <PageAsideWrapper>
-      <Link href={`/a1cada6f7b5a4628a11b1d4e33aef004`}>
+      {/* <Link href={`/a1cada6f7b5a4628a11b1d4e33aef004`}>
         <Image
           alt={"coupong"}
           src={CouponImg}
@@ -16,7 +16,7 @@ export default function PageAside() {
           placeholder="blur"
           blurDataURL={CouponImg.blurDataURL}
         />
-      </Link>
+      </Link> */}
     </PageAsideWrapper>
   );
 }
