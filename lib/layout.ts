@@ -1,3 +1,4 @@
+export const TOP_BANNER_HEIGHT = `44px`;
 export const HEADER_HEIGHT = `64px`;
 export const ASIDE_WIDTH = `310px`;
 
