@@ -11,11 +11,9 @@ import {
   BannerSubtitle,
   BannerCTA,
 } from "./PageTitle.style";
-import { ExtendedRecordMap } from "notion-types";
-import { getPageTitle } from "notion-utils";
 
 interface Props {
-  recordMap: ExtendedRecordMap;
+  title?: string;
 }
 
 function getDiscountDeadline() {
@@ -45,7 +43,7 @@ function getDday(deadline: Date) {
 }
 
 export default function PageTitle(props: Props) {
-  const { recordMap } = props;
+  const { title } = props;
 
   const { deadlineText, dday } = useMemo(() => {
     const deadline = getDiscountDeadline();
@@ -57,7 +55,7 @@ export default function PageTitle(props: Props) {
 
   return (
     <PageTitleWrapper>
-      <StyledTitle>{getPageTitle(recordMap)}</StyledTitle>
+      <StyledTitle>{title}</StyledTitle>
       <StyledBanner>
         <CouponBanner
           href="https://link.onebitefe.com/r/4zmcqk"

@@ -1,5 +1,3 @@
-import style from "./Code.module.scss";
-
 // syntax highlighter
 import { PrismLight as SyntaxHighlighter } from "react-syntax-highlighter";
 // codes
@@ -20,7 +18,6 @@ import {
   TopbarRightCol,
   CopyButton,
 } from "./Code.style";
-import { CodeBlock } from "types/notion";
 import { useSnackbar } from "store/SnackbarStore";
 
 SyntaxHighlighter.registerLanguage("jsx", jsx);
@@ -29,23 +26,18 @@ SyntaxHighlighter.registerLanguage("typescript", typescript);
 SyntaxHighlighter.registerLanguage("json", json);
 SyntaxHighlighter.registerLanguage("c", c);
 
+interface Props {
+  code: string;
+  language?: string;
+  caption?: string;
+}
+
 function copyClipboard(text: string) {
   return window.navigator.clipboard.writeText(text);
 }
 
-export default function Code(props: CodeBlock) {
-  const {
-    block: {
-      properties: { title, language, caption: blockCaption },
-    },
-  } = props;
-
+export default function Code({ code, language, caption }: Props) {
   const openSnackbar = useSnackbar();
-
-  const code = title.map((it) => it.join("")).join("");
-  const caption =
-    blockCaption && blockCaption.map((it) => it.join("")).join("");
-  const lang = language.at(0)?.at(0);
 
   const onClickCopyCode = async () => {
     await copyClipboard(code);
@@ -70,8 +62,7 @@ export default function Code(props: CodeBlock) {
       </TopBar>
       <SyntaxHighlighter
         style={vscDarkPlus}
-        showLineNumbers={true}
-        language={lang?.toLowerCase()}
+        language={language?.toLowerCase()}
         customStyle={{
           marginTop: "0px",
           borderTopLeftRadius: "0px",

@@ -1,10 +1,8 @@
-import { getSections, fetchRecordMap } from "lib/notion";
+import { getSections, fetchPageContent } from "lib/notion";
 import { GetStaticProps } from "next";
 import { Section } from "types/content";
-import { ExtendedRecordMap } from "notion-types";
 import Layout from "../components/Layout/index";
 import { createContext, useEffect } from "react";
-import { getPageTitle } from "notion-utils";
 import config from "config/config.json";
 import OpenGraphHead from "components/OpenGraphHead";
 import { fetchAllPages } from "../lib/notion";
@@ -14,7 +12,7 @@ import { useRouter } from "next/router";
 interface Props {
   pageID: string;
   sections: Section[];
-  recordMap: ExtendedRecordMap;
+  markdown: string | null;
   pageTitle?: string;
   chapterTitle: string;
   currentSection?: Section;
@@ -98,13 +96,13 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
   const pageID = Array.isArray(slug) ? slug[0] : config.homePageID;
   const isContentPage = Array.isArray(slug) && slug.length === 1;
 
-  const [sectionsReq, recordMapReq] = await Promise.allSettled([
+  const [sectionsReq, pageContentReq] = await Promise.allSettled([
     getSections(),
-    fetchRecordMap(pageID),
+    fetchPageContent(pageID),
   ]);
 
   const sections = isRejected(sectionsReq) ? [] : sectionsReq.value;
-  const recordMap = isRejected(recordMapReq) ? null : recordMapReq.value;
+  const pageContent = isRejected(pageContentReq) ? null : pageContentReq.value;
 
   let currentSection: Section | null = null;
   if (sections && isContentPage) {
@@ -116,10 +114,7 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
       }) || null;
   }
 
-  let chapterTitle: string | undefined;
-  if (recordMap) {
-    chapterTitle = getPageTitle(recordMap);
-  }
+  const chapterTitle = pageContent?.title;
 
   let pageTitle: string | null = null;
   if (chapterTitle) {
@@ -137,8 +132,8 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
       chapterTitle: chapterTitle || null,
       currentSection: currentSection,
       sections: sections,
-      recordMap: recordMap,
+      markdown: pageContent?.markdown ?? null,
     },
-    revalidate: 1,
+    revalidate: false,
   };
 };
