@@ -54,7 +54,7 @@ export const TocHeader = styled("div")`
   font-size: 12px;
   font-weight: 600;
   letter-spacing: 0.06em;
-  color: rgba(255, 255, 255, 0.55);
+  color: var(--fg-opacity-color);
   margin-bottom: 0.75rem;
 `;
 
@@ -67,17 +67,17 @@ export const TocList = styled("nav")`
 export const TocLink = styled("a")<{ $level: number }>`
   font-size: 14px;
   line-height: 1.5;
-  color: rgba(255, 255, 255, 0.7);
+  color: var(--fg-opacity-color);
   text-decoration: none;
   padding-left: ${({ $level }) => ($level - 1) * 12}px;
 
   &:hover {
-    color: #80bdff;
+    color: var(--primary-color);
   }
 `;
 
 export const MarkdownWrapper = styled("div")`
-  color: rgba(255, 255, 255, 0.9);
+  color: var(--fg-color);
   font-size: 16px;
   line-height: 1.7;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue",
@@ -88,7 +88,7 @@ export const MarkdownWrapper = styled("div")`
   h2,
   h3,
   h4 {
-    color: #fff;
+    color: var(--fg-color);
     font-weight: 600;
     line-height: 1.3;
     margin: 2em 0 0.6em;
@@ -99,7 +99,7 @@ export const MarkdownWrapper = styled("div")`
   }
   h2 {
     font-size: 1.5em;
-    color: #80bdff;
+    color: var(--primary-color);
   }
   h3 {
     font-size: 1.25em;
@@ -113,7 +113,7 @@ export const MarkdownWrapper = styled("div")`
   }
 
   a {
-    color: #80bdff;
+    color: var(--primary-color);
     text-decoration: underline;
     text-underline-offset: 3px;
     word-break: break-all;
@@ -132,17 +132,17 @@ export const MarkdownWrapper = styled("div")`
   }
 
   blockquote {
-    border-left: 3px solid rgba(255, 255, 255, 0.4);
+    border-left: 3px solid var(--fg-opacity-color);
     padding: 0.4em 1em;
     margin: 1em 0;
-    color: rgba(255, 255, 255, 0.85);
-    background: rgba(255, 255, 255, 0.04);
+    color: var(--fg-color);
+    background: var(--bg-opacity-color);
     border-radius: 0 4px 4px 0;
   }
 
   hr {
     border: none;
-    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    border-top: 1px solid var(--bg-opacity-color);
     margin: 2em 0;
   }
 
@@ -161,19 +161,19 @@ export const MarkdownWrapper = styled("div")`
   }
   th,
   td {
-    border: 1px solid rgba(255, 255, 255, 0.15);
+    border: 1px solid var(--bg-opacity-color);
     padding: 0.5em 0.8em;
     text-align: left;
   }
   th {
-    background: rgba(255, 255, 255, 0.05);
+    background: var(--bg-opacity-color);
     font-weight: 600;
   }
 
   /* inline code */
   code {
-    background: rgba(135, 131, 120, 0.25);
-    color: #ff7a59;
+    background: var(--bg-opacity-color);
+    color: var(--primary-color);
     padding: 0.15em 0.4em;
     border-radius: 3px;
     font-size: 0.9em;
@@ -197,7 +197,7 @@ export const MarkdownWrapper = styled("div")`
   pre ::selection,
   pre code ::selection,
   pre code *::selection {
-    background: rgba(80, 140, 220, 0.35);
+    background: var(--primary-tinted-color);
     color: inherit;
   }
 
@@ -213,30 +213,30 @@ export const MarkdownWrapper = styled("div")`
     gap: 0.25rem;
     padding: 0.75rem 1rem;
     margin: 1em 0;
-    background: rgba(255, 255, 255, 0.04);
-    border: 1px solid rgba(255, 255, 255, 0.12);
+    background: var(--bg-opacity-color);
+    border: 1px solid var(--bg-opacity-color);
     border-radius: 6px;
     text-decoration: none !important;
     color: inherit !important;
     transition: background 0.15s ease, border-color 0.15s ease;
   }
   .notion-bookmark:hover {
-    background: rgba(255, 255, 255, 0.07);
-    border-color: rgba(128, 189, 255, 0.4);
+    background: var(--primary-tinted-color);
+    border-color: var(--primary-color);
   }
   .notion-bookmark-host {
     font-size: 12px;
-    color: rgba(255, 255, 255, 0.55);
+    color: var(--fg-opacity-color);
     letter-spacing: 0.02em;
   }
   .notion-bookmark-url {
     font-size: 14px;
-    color: #80bdff;
+    color: var(--primary-color);
     word-break: break-all;
   }
   .notion-bookmark-caption {
     font-size: 13px;
-    color: rgba(255, 255, 255, 0.7);
+    color: var(--fg-opacity-color);
     margin-top: 0.25rem;
   }
 
@@ -248,8 +248,8 @@ export const MarkdownWrapper = styled("div")`
     gap: 0.75rem;
     padding: 1rem 1.2rem;
     margin: 1em 0;
-    background: rgba(255, 255, 255, 0.04);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: var(--bg-opacity-color);
+    border: 1px solid var(--bg-opacity-color);
     border-radius: 6px;
   }
   .notion-callout-icon {
@@ -288,8 +288,8 @@ export const MarkdownWrapper = styled("div")`
   details {
     margin: 1em 0;
     padding: 0.5em 1em;
-    background: rgba(255, 255, 255, 0.04);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: var(--bg-opacity-color);
+    border: 1px solid var(--bg-opacity-color);
     border-radius: 6px;
   }
   details > summary {
@@ -300,7 +300,7 @@ export const MarkdownWrapper = styled("div")`
   }
   details[open] > summary {
     margin-bottom: 0.5em;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    border-bottom: 1px solid var(--bg-opacity-color);
     padding-bottom: 0.5em;
   }
 `;
